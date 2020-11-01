@@ -1,105 +1,96 @@
-let MENU = 0
-let QUESTIONONE = 1
-let QUESTIONTWO = 2
-let QUESTIONTHREE = 3
-let screen = 0
-let startButton;
-let nextButton;
+let inp;
+let radio;
+let slider;
+let sel;
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(random(250), random(100), random(100))
-  fill(255, 255, 255)
+  background(200, 100, 200)
+  
+  
+  inp = createInput('');
+  inp.input(Name);
+  
+  inp.size(250, 30);
+  
+  repositionInput();
+  
+  radio = createRadio();
+  radio.option('Yes');
+  radio.option('No');
+  radio.position(350, 270)
+  radio.style('width', '60px');
+  textAlign(CENTER);
+  fill(255, 0, 0);
+  
+  slider = createSlider(0, 200, 100, 100);
+  slider.position(300, 415);
+  slider.style('width', '200px');
+
+  textAlign(CENTER);
+  background(200, 200, 100);
+  sel = createSelect();
+  sel.position(400, 545);
+  sel.option('(choose)');
+  sel.option('mail');
+  sel.option('in person');
+  sel.changed(mySelectAnswer);
+  sel.size(250, 20)
+  
+  
+ 
+
+}
+
+function Name() {
+  
+}
+
+function mySelectAnswer(){
+  let item = sel.value();
+  background(100, 200, 100);
+}
+
+function draw() {
+  background(200, 100, 200)  
+  
+  
+  fill(0, 0, 0)
   textSize(48);
   textAlign(CENTER);
-  text('Voting Questionnaire', windowWidth/2, windowHeight - 400)
+  text('Voting Questionnaire', windowWidth/2 + 50, windowHeight/2 - 300)
   
-  
-  
-//   startButton = createButton('Start');
-//   startButton.position(windowWidth/2, windowHeight - 400)
-  
-//   startButton.mousePressed(screen0)
-  
-  nextButton = createButton('Next');
-  
-  nextButton.mousePressed(continueScreen);
-  
-  repositionButton();
-}
-
-// function draw() {
-// if (screen === MENU && nextButton.mousePressed) {
-//    screen0()
-//  }else if (screen === QUESTIONONE && nextButton.mousePressed) {
-//    screen1()
-//  }else if (screen === QUESTIONTWO && nextButton.mousePressed) {
-//    screen2()
-//  }else if (screen === QUESTIONTHREE && nextButton.mousePressed) {
-//    screen3()
-//  }
-// }
-
-function continueScreen() {
-  if (screen === MENU) {
-   screen0()
- }else if (screen === QUESTIONONE) {
-   screen1()
- }else if (screen === QUESTIONTWO) {
-   screen2()
- }else if (screen === QUESTIONTHREE) {
-   screen3()
- }
-}
-
-
-function screen0 () {
-  background(200, 100, 200);
   fill(0, 0, 0)
   textSize(24);
   textAlign(CENTER);
-  text('What is your name?', windowWidth/2, windowHeight - 400)
-  if (nextButton.mousePressed) {
-    screen += 1
-  }
-}
-
-function screen1() {
-  background(100, 100, 200);
+  text('What is your name?', 150, 170)
+  
   fill(0, 0, 0)
   textSize(24);
   textAlign(CENTER);
-  text('Are you elligible to vote?', windowWidth/2, windowHeight - 400)
-  if (nextButton.mousePressed) {
-    screen += 1
-  }
-}
-
-function screen2() {
-  background(30, 150, 230);
+  text('Are you elligible to vote?', 150, 300)
+  
   fill(0, 0, 0)
   textSize(24);
   textAlign(CENTER);
-  text('Have you voted?', windowWidth/2, windowHeight - 400)
-  if (nextButton.mousePressed) {
-    screen += 1
-  }
-}
-
-function screen3() {
-  background(30, 250, 230);
+  text('Have you voted?', 150, 430)
+  fill(200, 0, 0)
+  text('No', 500, 455)
+  fill(0, 200, 0)
+  text('Yes', 300, 455)
+  
   fill(0, 0, 0)
   textSize(24);
   textAlign(CENTER);
-  text('Good Job!', windowWidth/2, windowHeight - 400)
-  if (nextButton.mousePressed) {
-  }
+  text('Did you vote by mail or in person?', 200, 560)
 }
 
-function repositionButton() {
-  nextButton.position(windowWidth - 100, windowHeight - 100);
+function repositionInput() {
+  inp.position(290, 150, 170);
   
 }
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  repositionButton();
+  repositionInput();
+  
 }

@@ -77,36 +77,36 @@ function mySelectAnswer(){
 function checkMark1() {
   
 //image source: <a href="https://www.freeiconspng.com/img/5385">Green Check Mark</a>
-  img = createImg("https://www.freeiconspng.com/uploads/green-check-mark-16.jpg", '')
+  img1 = createImg("https://www.freeiconspng.com/uploads/green-check-mark-16.jpg", '')
   
-  img.size(50, 50)
+  img1.size(50, 50)
 
   repositionImg1();
 }
 function checkMark2() {
   
 //image source: <a href="https://www.freeiconspng.com/img/5385">Green Check Mark</a>
-  img = createImg("https://www.freeiconspng.com/uploads/green-check-mark-16.jpg", '')
+  img2 = createImg("https://www.freeiconspng.com/uploads/green-check-mark-16.jpg", '')
   
-  img.size(50, 50)
+  img2.size(50, 50)
 
   repositionImg2();
 }
 function checkMark3() {
   
 //image source: <a href="https://www.freeiconspng.com/img/5385">Green Check Mark</a>
-  img = createImg("https://www.freeiconspng.com/uploads/green-check-mark-16.jpg", '')
+  img3 = createImg("https://www.freeiconspng.com/uploads/green-check-mark-16.jpg", '')
   
-  img.size(50, 50)
+  img3.size(50, 50)
 
   repositionImg3();
 }
 function checkMark4() {
   
 //image source: <a href="https://www.freeiconspng.com/img/5385">Green Check Mark</a>
-  img = createImg("https://www.freeiconspng.com/uploads/green-check-mark-16.jpg", '')
+  img4 = createImg("https://www.freeiconspng.com/uploads/green-check-mark-16.jpg", '')
   
-  img.size(50, 50)
+  img4.size(50, 50)
 
   repositionImg4();
 }
@@ -115,35 +115,35 @@ function draw() {
   background(200, 100, 200)  
   
   
-  fill(0, 0, 0)
+  fill(255, 255, 255)
   textSize(48);
   textAlign(CENTER);
   textFont('Georgia')
   text('Voting Questionnaire', windowWidth/2 + 50, windowHeight/2 - 300)
   
-  fill(0, 0, 0)
+  fill(100, 0, 0)
   textSize(24);
   textAlign(CENTER);
-  text('What is your name?', 150, 170)
+  text('What is your name?', windowWidth/2 - 250, windowHeight/2 -200)
   
-  fill(0, 0, 0)
+  fill(100, 0, 0)
   textSize(24);
   textAlign(CENTER);
-  text('Are you elligible to vote?', 150, 300)
+  text('Are you elligible to vote?', windowWidth/2 - 250, windowHeight/2 -50)
   
-  fill(0, 0, 0)
+  fill(100, 0, 0)
   textSize(24);
   textAlign(CENTER);
-  text('Have you voted?', 150, 430)
+  text('Have you voted?', windowWidth/2 - 250, windowHeight/2 + 70)
   fill(200, 0, 0)
-  text('No', 375, 515)
+  text('No', windowWidth/2 - 90, windowHeight/2 + 135)
   fill(0, 200, 0)
-  text('Yes', 175, 515)
+  text('Yes', windowWidth/2 - 260, windowHeight/2 + 135)
   
-  fill(0, 0, 0)
+  fill(100, 0, 0)
   textSize(24);
   textAlign(CENTER);
-  text('Did you vote by mail or in person?', 200, 560)
+  text('Did you vote by mail or in person?', windowWidth/2 - 200, windowHeight/2 + 220)
 }
 
 
@@ -166,7 +166,7 @@ function repositionRadio() {
 }
 
 function repositionSlider() {
-  slider.position(windowWidth/2 - 280, windowHeight/2 + 130);
+  slider.position(windowWidth/2 - 280, windowHeight/2 + 100);
 }
 
 function repositionSelect() {
@@ -174,27 +174,27 @@ function repositionSelect() {
 }
 
 function repositionImg1() {
-  img.position(windowWidth/2 + 150, windowHeight/2 - 160)
+  img1.position(windowWidth/2 + 150, windowHeight/2 - 160)
 }
 function repositionImg2() {
-  img.position(windowWidth/2 + 150, windowHeight/2 - 40)
+  img2.position(windowWidth/2 + 150, windowHeight/2 - 40)
 }
 
 function repositionImg3() {
-  img.position(windowWidth/2 + 100, windowHeight/2 + 90)
+  img3.position(windowWidth/2 + 100, windowHeight/2 + 90)
 }
 
 function repositionImg4() {
-  img.position(windowWidth/2 + 150, windowHeight/2 + 230)
+  img4.position(windowWidth/2 + 150, windowHeight/2 + 230)
 }
 
 
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  repositionButtons();
   repositionInput();
   repositionRadio();
-  repositionButtons();
   repositionSlider();
   repositionSelect();
   repositionImg1();

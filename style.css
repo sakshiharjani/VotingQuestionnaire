@@ -5,3 +5,28 @@ html, body {
 canvas {
   display: block;
 }
+
+.group-button {
+  width: 100px;
+  height: 50px;
+  background-color: orange;
+  color: black;
+  border: groove;
+  border-radius: 10px;
+  font-family: monospace
+}
+
+.group-button:hover {
+  background-color: green;
+  
+  
+}
+#unique-input {
+  width: 100px;
+  height: 50px;
+  background-color: pink;
+  color: black;
+  border: groove;
+  border-radius: 10px;
+  
+}

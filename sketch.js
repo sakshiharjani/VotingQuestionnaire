@@ -184,7 +184,7 @@ function draw() {
   fill(100, 0, 0)
   textSize(24);
   textAlign(CENTER);
-  text('Are you elligible to vote?', windowWidth/2 - 250, windowHeight/2 -50)
+  text('Are you eligible to vote?', windowWidth/2 - 250, windowHeight/2 -50)
   
   fill(100, 0, 0)
   textSize(24);

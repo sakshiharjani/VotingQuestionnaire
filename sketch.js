@@ -6,7 +6,16 @@ let button1;
 let button2;
 let button3;
 let button4;
-let img;
+let img1;
+let img2;
+let img3;
+let img4;
+let submitButton;
+let img5;
+let stickerText;
+let endTitle;
+let endVote;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(200, 100, 200)
@@ -23,6 +32,7 @@ function setup() {
   radio = createRadio();
   radio.option('Yes');
   radio.option('No');
+  radio.changed(myRadioAnswer);
   
   radio.style('width', '60px');
   textAlign(CENTER);
@@ -31,6 +41,7 @@ function setup() {
   repositionRadio();
   
   slider = createSlider(0, 200, 100, 100);
+  slider.changed(mySliderAnswer);
   slider.style('width', '200px');
   
   repositionSlider();
@@ -41,6 +52,7 @@ function setup() {
   sel.option('(choose)');
   sel.option('mail');
   sel.option('in person');
+  sel.option('N/A');
   sel.changed(mySelectAnswer);
   sel.size(250, 20)
   
@@ -50,15 +62,18 @@ function setup() {
   button2 = createButton('Enter');
   button3 = createButton('Enter');
   button4 = createButton('Enter');
+  submitButton = createButton('Submit')
   button1.class('group-button')
   button2.class('group-button')
   button3.class('group-button')
   button4.class('group-button')
+  submitButton.id('unique-button')
   
   button1.mousePressed(checkMark1);
   button2.mousePressed(checkMark2);
   button3.mousePressed(checkMark3);
   button4.mousePressed(checkMark4);
+  submitButton.mousePressed(Submit);
   
   repositionButtons();
     
@@ -66,7 +81,15 @@ function setup() {
 }
 
 function Name() {
-  
+}
+
+
+function mySliderAnswer() {
+  let item = slider.value();
+}
+
+function myRadioAnswer() {
+  let item = radio.value();
 }
 
 function mySelectAnswer(){
@@ -111,8 +134,40 @@ function checkMark4() {
   repositionImg4();
 }
 
+function Submit() {
+  let choiceS = slider.value()
+  let choiceR = radio.value()
+ if (choiceS === 0 && choiceR === 'Yes') {
+    stickerText = createDiv('Good Job! Here is your sticker!')
+     stickerText.id('unique-sticker');
+     repositionDiv1();
+     
+//image source: https://www.pngkey.com/maxpic/u2q8u2q8e6u2o0q8/
+    img5 = createImg("https://www.pngkey.com/png/full/113-1133477_i-voted-sticker-png-clip-art-transparent-stock.png", '')
+    
+    
+    img5.size(250, 250)
+    repositionImg5();
+   
+} else if (choiceS === 200 && choiceR === 'No') {
+   endTitle = createDiv('Thank you for your time. Encourage your friends to vote!')
+   endTitle.id('unique-end');
+  
+  repositionDiv2();
+  
+} else if (choiceS === 200 && choiceR === 'Yes') {
+   endVote = createDiv( "Vote if you can!")
+   endVote.id('unique-vote');
+  
+    repositionDiv3();
+}
+    
+  
+}
+
 function draw() {
-  background(200, 100, 200)  
+  background(200, 100, 200) 
+  
   
   
   fill(255, 255, 255)
@@ -147,18 +202,17 @@ function draw() {
 }
 
 
-
 function repositionButtons() {
   button1.position(windowWidth/2 + 10, windowHeight/2 - 160)
   button2.position(windowWidth/2 - 40, windowHeight/2 - 40)
   button3.position(windowWidth/2 - 20, windowHeight/2 + 90)
   button4.position(windowWidth/2 + 30, windowHeight/2 + 230)
+  submitButton.position(windowWidth/2 + 150, windowHeight - 50)
   
 }
 
 function repositionInput() {
   inp.position(windowWidth/2 - 300, windowHeight/2 - 150);
-  
 }
 
 function repositionRadio() {
@@ -174,7 +228,7 @@ function repositionSelect() {
 }
 
 function repositionImg1() {
-  img1.position(windowWidth/2 + 150, windowHeight/2 - 160)
+  img1.position(windowWidth/2 + 150, windowHeight/2 - 160);
 }
 function repositionImg2() {
   img2.position(windowWidth/2 + 150, windowHeight/2 - 40)
@@ -188,7 +242,20 @@ function repositionImg4() {
   img4.position(windowWidth/2 + 150, windowHeight/2 + 230)
 }
 
+function repositionImg5() {
+  img5.position(windowWidth/2 + 200, windowHeight/2)
+}
 
+function repositionDiv1() {
+  stickerText.position(windowWidth/2 + 200, windowHeight - 600)
+}
+
+function repositionDiv2() {
+  endTitle.position(windowWidth/2 + 200, windowHeight/2 - 100)
+}
+function repositionDiv3() {
+  endVote.position(windowWidth/2 + 200, windowHeight - 600)
+}
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
@@ -201,5 +268,8 @@ function windowResized() {
   repositionImg2();
   repositionImg3();
   repositionImg4();
-  
+  repositionImg5();
+  repositionDiv1();
+  repositionDiv2();
+  repositionDiv3();
 }
